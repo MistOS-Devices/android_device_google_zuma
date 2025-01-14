@@ -11,6 +11,9 @@ DEVICE_PACKAGE_OVERLAYS += device/google/zuma/overlay-lineage
 PRODUCT_COPY_FILES += \
     device/google/zuma/allowlist_com.google.android.as.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/allowlist_com.google.android.as.xml
 
+# Private signing keys
+-include vendor/lineage-priv/keys/keys.mk
+
 # AudioFX
 TARGET_EXCLUDES_AUDIOFX := true
 
@@ -59,3 +62,6 @@ TARGET_HAS_UDFPS := true
 
 # ViperFX
 $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
+
+# Basic Call Recorder (BCR)
+$(call inherit-product-if-exists, vendor/bcr/bcr.mk)
